@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item active">Categories</li>
+{% endblock %}
+
+{% block content %}
+<table class="table" border="1">
+    <thead class="thead-inverse">
+    <tr>
+        <th>Topic</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for category in categories.topics.all %}
+    <tr>
+        <td><a href="{% url 'topic_posts' topic.forum.pk topic.pk %}">{{ category }}</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    {% endblock %}
+</table>

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item active">Categories</li>
+{% endblock %}
+
+{% block content %}
+<form action="" method = "get">
+    <input type="text" name="search" value="" placeholder="Search here">
+    <select name="order_by">
+        <option value="title">Title asc</option>
+        <option value="-title">Title desc</option>
+    </select>
+    <input type="submit" value="Search">
+</form>
+  {% for category in categories %}
+    <h1>
+      <a href="{% url 'category_detail' category.pk %}">{{ category }}</a>
+    </h1>
+  {% endfor %}
+{% endblock %}
